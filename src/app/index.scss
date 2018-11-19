@@ -1,0 +1,139 @@
+@import '../partials/variables';
+@import '../partials/mixins';
+.panel {
+    @include flex(column);
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    height: 96%;
+    width: 25%;
+    background-color: $blue;
+    border-radius: 10px;
+    overflow: hidden;
+
+    & > .panel-head {
+        position: relative;
+        height: 20%;
+        & > * {
+            position: absolute;
+            top: 50%;
+            @include transform(translateY(-50%));
+        }
+        & > img {
+            left: 5%;
+            width: 2rem;
+            opacity: 0;
+            @include transition(0.25s);
+            &:hover {
+              left: 4.5%;
+            }
+        }
+        & > .bold {
+            left: 5%;
+            @include font-size(1.5rem);
+            transition: all 0.25s;
+        }
+        &.-extended {
+            & > img {
+                opacity: 1;
+            }
+            & > .bold {
+                left: calc(95% - 7.4716875rem);
+            }
+        }
+    }
+    & > .panel-body {
+        position: relative;
+        height: 80%;
+        & > .gradient {
+            z-index: 2;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20%;
+            background-image: linear-gradient(rgba($blue, 0), rgba($blue, 1));
+        }
+        & > .p-b-step {
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding-bottom: 35%;
+            overflow-y: auto;
+            opacity: 1;
+            transition: 0.25s;
+            &.-out {
+                z-index: 0;
+                opacity: 0;
+            }
+            &.-in {
+                z-index: 1;
+                opacity: 1;
+            }
+            &.-abs {
+                z-index: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            & > .-half {
+                padding: 2% 5%;
+            }
+            & > .state-bar {
+                @include flex(row, center, space-between);
+                padding: 2% 5%;
+                &.-graph {
+                  margin-bottom: 2.5%;
+                }
+            }
+        }
+    }
+}
+
+.light {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: $green;
+    border-radius: 50%;
+    &.-red {
+        background-color: $red;
+    }
+}
+
+.graph-above {
+  margin-top: 15%;
+}
+
+::ng-deep .ngx-charts {
+  text{
+      fill: #fff!important;
+  }
+}
+
+.map {
+  @include flex(row-reverse, center, center);
+  flex-wrap: wrap;
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  @include transform(translateY(-50%));
+  width: 50%;
+  min-height: 50%;
+  & > div {
+  margin: 0 calc(12.5% - 7.5px);
+  }
+}
+.map-light {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: $green;
+  box-shadow: 0px 0px 54px 6px rgba(129, 218, 85, 1);
+  transition: all 0.25s;
+  &.-red {
+    background-color: $red;
+    box-shadow: 0px 0px 54px 6px rgba(240, 82, 74, 1);
+  }
+}

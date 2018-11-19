@@ -1,0 +1,17 @@
+button {
+    border: none;
+    @include transition(0.25s);
+    white-space: nowrap;
+}
+.btn-1 {
+    display: block;
+    width: 94%;
+    padding: 20pt 11pt;
+    text-align: left;
+    background-color: $light-blue;
+    border-radius: 10px;
+    color: $white;
+    &:hover {
+        background-color: darken($light-blue,15%);
+    }
+}

@@ -1,0 +1,36 @@
+form {
+    & > * {
+        margin-bottom: 1rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.table-1 {
+    margin-bottom: 2.5rem;
+
+    & > .t-1-row {
+        @include flex(row);
+        border-top: 1px solid rgba($white, 0.2);
+        @include transition(0.25s);
+        &:last-child {
+            border-bottom: 1px solid rgba($white, 0.2);
+        }
+        &:hover {
+            background-color: rgba($white, 0.1);
+        }
+        & > * {
+            padding: 1.5rem 5%;
+        }
+        & > .t-1-header {
+            width: 80%;
+            border-right: 1px solid rgba($white, 0.2);
+        }
+        & > .t-1-value {
+            @include flex(row,center,center);
+            white-space: nowrap;
+            width: 20%;
+        }
+    }
+}
