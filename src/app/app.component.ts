@@ -106,7 +106,10 @@ export class AppComponent implements AfterViewInit {
       const seriesRef = [];
       let currentDate;
       data.forEach(valueRef => {
-        currentDate = new Date(valueRef.date.nanoseconds);
+        currentDate = new Date(null);
+        currentDate.setSeconds(valueRef.date.seconds);
+        console.log(valueRef.date.seconds);
+        console.log(currentDate);
         seriesRef.push({
           name: currentDate,
           value: valueRef.level

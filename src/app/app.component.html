@@ -27,7 +27,7 @@
           </div>
           <div class="t-1-row -disabled">
             <div class="t-1-header txt">Densidad de Tráfico</div>
-            <div class="t-1-value txt">{{level}}%</div>
+            <div class="t-1-value txt">{{level | number : '1.2-2'}}%</div>
           </div>
         </div>
         <div class="txt bold -half">SEMÁFOROS</div>
@@ -54,15 +54,15 @@
         <div class="table-1">
           <div class="t-1-row -disabled">
             <div class="t-1-header txt">Promedio de densidad de Tráfico</div>
-            <div class="t-1-value">{{currentItem.levelAVG}}</div>
+            <div class="t-1-value">{{currentItem.levelAVG | number : '1.2-2'}}</div>
           </div>
           <div class="t-1-row -disabled">
             <div class="t-1-header txt">Promedio de tiempo en verde</div>
-            <div class="t-1-value">{{currentItem.timeGreenAVG}} seg</div>
+            <div class="t-1-value">{{currentItem.timeGreenAVG | number : '1.2-2'}} seg</div>
           </div>
           <div class="t-1-row -disabled">
             <div class="t-1-header txt">Promedio de tiempo en rojo</div>
-            <div class="t-1-value">{{currentItem.timeRedAVG}} seg</div>
+            <div class="t-1-value">{{currentItem.timeRedAVG | number : '1.2-2'}} seg</div>
           </div>
         </div>
         <button class="btn-1 margin-center" (click)="changeState(currentItem.id, currentItem.state)" >Cambiar Estado</button>
